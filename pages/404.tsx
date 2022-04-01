@@ -7,7 +7,7 @@ function NotFund() {
       <h1>Ooops...</h1>
       <p>NotFund </p>
       <p>
-        go back to the{" "}
+        go back to the
         <Link href="/">
           <a className={styles.goBackBtn}>Homepage</a>
         </Link>
