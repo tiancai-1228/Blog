@@ -1,0 +1,13 @@
+.notFund {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.goBackBtn {
+  color: blue;
+  cursor: pointer;
+}
