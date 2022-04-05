@@ -1,9 +1,93 @@
 .container {
-  border: 1px solid black;
   height: 100vh;
   background: radial-gradient(ellipse 90% 100% at left top, #022e83, black);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.logo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title h1 {
+  color: white;
+  font-size: 84px;
+}
+.title p {
+  color: white;
+  font-size: 20px;
 }
 
+.loginBtn {
+  display: flex;
+  width: 50%;
+  height: 10%;
+  align-items: center;
+
+  justify-content: space-around;
+}
+
+.loginBtn Button {
+  width: 30%;
+  height: 50%;
+}
+.loginBtn Button:hover {
+  width: 50%;
+  height: 60%;
+}
+
+.box1 {
+  width: 30%;
+  height: 30%;
+  margin-top: 50px;
+  animation: box1 5s infinite linear;
+}
+
+.box2 {
+  width: 10%;
+  height: 10%;
+  margin-top: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: box2 5s infinite linear;
+}
+
+@keyframes box1 {
+  0% {
+    /* transform: translate(0px, 0px); */
+    transform: rotateY(0deg) rotatex(0deg);
+  }
+  50% {
+    transform: rotateY(180deg) rotatex(180deg);
+  }
+  100% {
+    transform: rotateY(359deg) rotatex(359deg);
+    /* transform: translate(0px, 0px); */
+  }
+}
+
+@keyframes box2 {
+  0% {
+    transform: translate(-200%, 0px);
+  }
+  50% {
+    transform: translate(200%, 0px);
+  }
+  100% {
+    transform: translate(-200%, 0px);
+  }
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;

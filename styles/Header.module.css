@@ -2,7 +2,6 @@
   position: fixed;
   display: flex;
   justify-content: right;
-  color: white;
   width: 100%;
   z-index: 10;
   padding-top: 25px;
@@ -14,12 +13,13 @@
   font-size: 20px;
   width: 70%;
 }
+
 .item li {
   list-style: none;
 }
 
 .item :hover {
-  color: rgb(226, 74, 13);
+  color: white;
   transition: color, font-size 0.5s;
   font-size: 24px;
 }
