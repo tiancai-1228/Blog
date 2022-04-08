@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "../../styles/Login.module.css";
 import { Button, Form, Input } from "antd";
+import { useAppDispatch } from "../../hook/useAppRedux";
+import { setLogin } from "../../redux/slices/accountSlice";
 
-function login() {
+const login = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.container}>
       <Form
@@ -10,7 +14,8 @@ function login() {
         labelCol={{ span: 8 }}
         initialValues={{}}
         onFinish={(val) => {
-          console.log(val);
+          // console.log(val);
+          dispatch(setLogin({ val }));
         }}
         onFinishFailed={(err) => {
           console.log("err", err);
@@ -47,6 +52,6 @@ function login() {
       </Form>
     </div>
   );
-}
+};
 
 export default login;
