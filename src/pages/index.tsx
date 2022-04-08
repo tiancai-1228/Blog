@@ -5,7 +5,9 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import logo from "../image/logo.jpg";
 import loading from "../image/loading.png";
+import { useRouter } from "next/router";
 const Home: NextPage = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -18,7 +20,7 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.title}>
         <h1>welcome</h1>
-        <p>My Front End Blog : )</p>
+        <p>Hellow Front End Blog : )</p>
         <div className={styles.loginBtn}>
           <Button type="primary" shape="round" size={"middle"} ghost>
             visitor
@@ -29,7 +31,7 @@ const Home: NextPage = () => {
             size={"middle"}
             ghost
             onClick={() => {
-              console.log(logo);
+              router.push("/login");
             }}
           >
             Log in

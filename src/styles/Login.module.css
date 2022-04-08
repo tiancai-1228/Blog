@@ -1,0 +1,10 @@
+.container {
+  height: 100vh;
+  background: radial-gradient(ellipse 90% 100% at left top, #022e83, black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inpurt {
+  color: white;
+}
