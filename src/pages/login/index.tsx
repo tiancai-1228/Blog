@@ -14,7 +14,6 @@ const login = () => {
         labelCol={{ span: 8 }}
         initialValues={{}}
         onFinish={(val) => {
-          // console.log(val);
           dispatch(setLogin({ val }));
         }}
         onFinishFailed={(err) => {

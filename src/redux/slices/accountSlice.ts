@@ -15,6 +15,11 @@ export const accountSlice = createSlice({
       ...state,
       error: "",
     }),
+
+    loginSuccess: (state, _action: any) => ({
+      ...state,
+      error: "",
+    }),
   },
 });
 
