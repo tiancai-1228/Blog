@@ -18,11 +18,11 @@ function* handelLogin(action: any) {
       password,
     });
 
-    console.log("res:", data);
+    console.log("res:", data.data.result.accessToken);
+    addAxiosToken(data.data.result.accessToken);
   } catch (e) {
     console.log(e);
   }
-  //   addAxiosToken(res.accessToken);
 }
 // watcher
 export function* watchHandelTest() {
