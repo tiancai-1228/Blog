@@ -4,8 +4,17 @@
   justify-content: right;
   width: 100%;
   z-index: 10;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.header_home {
+  position: fixed;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  z-index: 10;
+  padding-top: 15px;
+  background-color: #0000001d;
 }
 .item {
   display: flex;
@@ -18,8 +27,11 @@
   list-style: none;
 }
 
-.item :hover {
+.h3 {
   color: white;
+}
+.item :hover {
+  color: rgb(255, 77, 0);
   transition: color, font-size 0.5s;
   font-size: 24px;
 }

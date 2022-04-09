@@ -2,7 +2,7 @@ import { Button } from "antd";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/TitlePage.module.css";
 import logo from "../image/logo.jpg";
 import loading from "../image/loading.png";
 import { useRouter } from "next/router";
@@ -22,7 +22,15 @@ const Home: NextPage = () => {
         <h1>welcome</h1>
         <p>Hellow Front End Blog : )</p>
         <div className={styles.loginBtn}>
-          <Button type="primary" shape="round" size={"middle"} ghost>
+          <Button
+            type="primary"
+            shape="round"
+            size={"middle"}
+            onClick={() => {
+              router.push("/home");
+            }}
+            ghost
+          >
             visitor
           </Button>
           <Button
