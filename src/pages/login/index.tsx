@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Login.module.css";
 import { Alert, Button, Form, Input, notification } from "antd";
 import { useAppDispatch, useAppSelector } from "../../hook/useAppRedux";
-import { setLogin } from "../../redux/slices/accountSlice";
+import { setLogin, setloginState } from "../../redux/slices/accountSlice";
 import router from "next/router";
 
 const login = () => {
@@ -16,13 +16,14 @@ const login = () => {
     });
   };
   useEffect(() => {
-    console.log(loginState);
     if (loginState === "success") {
       console.log("in");
       openNotificationWithIcon("success");
+      dispatch(setloginState({ loginState: undefined }));
       router.push("/");
     } else if (loginState === "false") {
       openNotificationWithIcon("error");
+      dispatch(setloginState({ loginState: undefined }));
     }
   }, [loginState]);
   return (

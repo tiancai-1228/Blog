@@ -1,10 +1,5 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects";
-import {
-  getdate,
-  setLogin,
-  loginSuccess,
-  loginFalse,
-} from "../slices/accountSlice";
+import { getdate, setLogin, setloginState } from "../slices/accountSlice";
 import { accountLogin } from "../../axios/api/account";
 import { addAxiosToken } from "../../axios/index";
 // handler
@@ -30,9 +25,9 @@ function* handelLogin(action: any) {
     ) {
       addAxiosToken(data.data.result.accessToken);
       document.cookie = "login=true";
-      yield put(loginSuccess({ loginState: "success" }));
+      yield put(setloginState({ loginState: "success" }));
     } else {
-      yield put(loginFalse({ loginState: "false" }));
+      yield put(setloginState({ loginState: "false" }));
     }
   } catch (e) {
     console.log(e);

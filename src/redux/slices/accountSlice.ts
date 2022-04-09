@@ -22,12 +22,7 @@ export const accountSlice = createSlice({
       error: "",
     }),
 
-    loginSuccess: (state, _action: any) => ({
-      ...state,
-      value: { loginState: _action.payload.loginState },
-      error: "",
-    }),
-    loginFalse: (state, _action: any) => ({
+    setloginState: (state, _action: any) => ({
       ...state,
       value: { loginState: _action.payload.loginState },
       error: "",
@@ -35,7 +30,6 @@ export const accountSlice = createSlice({
   },
 });
 
-export const { setLogin, getdate, loginSuccess, loginFalse } =
-  accountSlice.actions;
+export const { setLogin, getdate, setloginState } = accountSlice.actions;
 
 export default accountSlice.reducer;
