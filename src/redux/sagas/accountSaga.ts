@@ -1,5 +1,10 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects";
-import { getdate, setLogin } from "../slices/accountSlice";
+import {
+  getdate,
+  setLogin,
+  loginSuccess,
+  loginFalse,
+} from "../slices/accountSlice";
 import { accountLogin } from "../../axios/api/account";
 import { addAxiosToken } from "../../axios/index";
 // handler
@@ -10,16 +15,25 @@ function* handelTest(action: any) {
 
 function* handelLogin(action: any) {
   const { username, email, password } = action.payload.val;
-  console.log("insaga", username, email, password);
-  try {
-    const data: {} = yield call(accountLogin, {
-      name: username,
-      email,
-      password,
-    });
 
-    console.log("res:", data.data.result.accessToken);
-    addAxiosToken(data.data.result.accessToken);
+  try {
+    const data: { data: { result: { accessToken: string; status: string } } } =
+      yield call(accountLogin, {
+        name: username,
+        email,
+        password,
+      });
+
+    if (
+      data.data.result.status === "登入成功。" &&
+      data.data.result.accessToken
+    ) {
+      addAxiosToken(data.data.result.accessToken);
+      document.cookie = "login=true";
+      yield put(loginSuccess({ loginState: "success" }));
+    } else {
+      yield put(loginFalse({ loginState: "false" }));
+    }
   } catch (e) {
     console.log(e);
   }
