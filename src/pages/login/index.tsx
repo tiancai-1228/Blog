@@ -20,7 +20,7 @@ const login = () => {
       console.log("in");
       openNotificationWithIcon("success");
       dispatch(setloginState({ loginState: undefined }));
-      router.push("/");
+      router.push("/home");
     } else if (loginState === "false") {
       openNotificationWithIcon("error");
       dispatch(setloginState({ loginState: undefined }));

@@ -6,8 +6,13 @@ import styles from "../styles/TitlePage.module.css";
 import logo from "../image/logo.jpg";
 import loading from "../image/loading.png";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
+
 const Home: NextPage = () => {
   const router = useRouter();
+  const isLogin = Cookies.get("login");
+  // const isLogin = cookie.split(`; login=`)[1];
+  console.log(isLogin);
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -33,17 +38,19 @@ const Home: NextPage = () => {
           >
             visitor
           </Button>
-          <Button
-            type="primary"
-            shape="round"
-            size={"middle"}
-            ghost
-            onClick={() => {
-              router.push("/login");
-            }}
-          >
-            Log in
-          </Button>
+          {!isLogin && (
+            <Button
+              type="primary"
+              shape="round"
+              size={"middle"}
+              ghost
+              onClick={() => {
+                router.push("/login");
+              }}
+            >
+              Log in
+            </Button>
+          )}
         </div>
       </div>
     </div>
