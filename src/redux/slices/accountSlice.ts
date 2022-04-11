@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ValueProps {
+interface AccountSlice {
   loginState?: "success" | "false";
 }
 
@@ -9,7 +9,7 @@ export const accountSlice = createSlice({
   initialState: {
     value: {
       loginState: undefined,
-    } as ValueProps,
+    } as AccountSlice,
   },
 
   reducers: {
