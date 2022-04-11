@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.title}>
         <h1>welcome</h1>
-        <p>Hellow Front End Blog : )</p>
+        <p>Front End Blog : )</p>
         <div className={styles.loginBtn}>
           <Button
             type="primary"
