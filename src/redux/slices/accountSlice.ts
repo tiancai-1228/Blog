@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AccountSlice {
   loginState?: "success" | "false";
+  userData: {};
 }
 
 export const accountSlice = createSlice({
@@ -24,12 +25,18 @@ export const accountSlice = createSlice({
 
     setloginState: (state, _action: any) => ({
       ...state,
-      value: { loginState: _action.payload.loginState },
+      value: { ...state.value, loginState: _action.payload.loginState },
+      error: "",
+    }),
+    setUserData: (state, _action: any) => ({
+      ...state,
+      value: { ...state.value, userData: _action.payload.userData },
       error: "",
     }),
   },
 });
 
-export const { setLogin, getdate, setloginState } = accountSlice.actions;
+export const { setLogin, getdate, setloginState, setUserData } =
+  accountSlice.actions;
 
 export default accountSlice.reducer;
