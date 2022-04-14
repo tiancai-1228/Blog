@@ -9,37 +9,43 @@ const { Search } = Input;
 const blog = () => {
   const { userData } = useAppSelector((state) => state.account.value);
   const [message, setMessage] = useState("");
-
+  const [comment, setComment] = useState<any>([]);
   const socketUrl = "wss://robby-websocket.herokuapp.com";
   const { sendMessage } = useWebSocket(socketUrl, {
     onOpen: () => console.log("opened"),
     onMessage: (msg) => {
-      messageAry.push({
-        isUser: msg.data.split(",")[0] === userData.name,
-        msg: msg.data.split(",")[1],
-      });
-      test.push(msg.data.split(",")[1]);
+      // messageAry.push({
+      //   isUser: msg.data.split(",")[0] === userData.name,
+      //   msg: msg.data.split(",")[1],
+      // });
+      setComment([
+        ...comment,
+        {
+          isUser: msg.data.split(",")[0] === userData.name,
+          msg: msg.data.split(",")[1],
+        },
+      ]);
       console.log(msg.data.split(","));
     },
   });
-  let messageAry: { isUser: boolean; msg: string }[] = [];
-  let test: any = [];
-  const messages = messageAry.map((el, index) =>
-    el.isUser ? (
-      <p className={styles.userMessage} key={index}>
-        {el.msg}
-      </p>
-    ) : (
-      <p className={styles.unUserMessage} key={index}>
-        {el.msg}
-      </p>
-    )
+  // let messageAry: { isUser: boolean; msg: string }[] = [];
+
+  const messages = comment.map(
+    (el: { isUser: boolean; msg: string }, index: number) =>
+      el.isUser ? (
+        <p className={styles.userMessage} key={index}>
+          {el.msg}
+        </p>
+      ) : (
+        <p className={styles.unUserMessage} key={index}>
+          {el.msg}
+        </p>
+      )
   );
 
   useEffect(() => {
-    console.log(messageAry);
-    console.log(test);
-  }, [messageAry]);
+    console.log(comment);
+  }, [comment]);
   return (
     <>
       <br />
