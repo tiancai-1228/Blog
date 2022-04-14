@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AccountSlice {
   loginState?: "success" | "false";
-  userData: {};
+  userData: { name: string; id: string; email: string };
 }
 
 export const accountSlice = createSlice({
@@ -10,6 +10,7 @@ export const accountSlice = createSlice({
   initialState: {
     value: {
       loginState: undefined,
+      userData: {},
     } as AccountSlice,
   },
 

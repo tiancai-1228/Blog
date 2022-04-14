@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           >
             visitor
           </Button>
-          {!isLogin && (
+          {/* {!isLogin && (
             <Button
               type="primary"
               shape="round"
@@ -50,7 +50,18 @@ const Home: NextPage = () => {
             >
               Log in
             </Button>
-          )}
+          )} */}
+          <Button
+            type="primary"
+            shape="round"
+            size={"middle"}
+            ghost
+            onClick={() => {
+              router.push("/login");
+            }}
+          >
+            Log in
+          </Button>
         </div>
       </div>
     </div>

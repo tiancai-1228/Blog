@@ -16,39 +16,37 @@ function Header() {
   });
 
   return (
-    <>
-      <div
-        className={headerType === "header" ? styles.header : styles.header_home}
-      >
-        <ul className={styles.item}>
-          <li>
-            <Link href="/">
-              <a className={styles.h3}>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className={styles.h3}>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className={styles.h3}>Portfilio</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className={styles.h3}>Blog</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className={styles.h3}>Contact Us</a>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </>
+    <div
+      className={headerType === "header" ? styles.header : styles.header_home}
+    >
+      <ul className={styles.item}>
+        <li>
+          <Link href="/">
+            <a className={styles.h3}>Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <a className={styles.h3}>About</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <a className={styles.h3}>Portfilio</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog">
+            <a className={styles.h3}>Blog</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/">
+            <a className={styles.h3}>Contact Us</a>
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 }
 
