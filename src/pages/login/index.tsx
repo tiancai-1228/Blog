@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/Login.module.css";
-import { Alert, Button, Form, Input, notification } from "antd";
+import { Button, Form, Input, notification } from "antd";
 import { useAppDispatch, useAppSelector } from "../../hook/useAppRedux";
 import { setLogin, setloginState } from "../../redux/slices/accountSlice";
 import router from "next/router";
