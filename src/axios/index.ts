@@ -11,5 +11,6 @@ export const customAxios = axios.create({
 });
 
 export function addAxiosToken(token: string) {
-  customAxios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  customAxios.defaults.headers.common.Authorization = `${token}`;
+  document.cookie = `login=${token}`;
 }

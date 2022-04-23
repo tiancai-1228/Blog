@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { Button } from "antd";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -11,8 +12,7 @@ import Cookies from "js-cookie";
 const Home: NextPage = () => {
   const router = useRouter();
   const isLogin = Cookies.get("login");
-  // const isLogin = cookie.split(`; login=`)[1];
-  console.log(isLogin);
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           >
             visitor
           </Button>
-          {/* {!isLogin && (
+          {!isLogin && (
             <Button
               type="primary"
               shape="round"
@@ -50,18 +50,7 @@ const Home: NextPage = () => {
             >
               Log in
             </Button>
-          )} */}
-          <Button
-            type="primary"
-            shape="round"
-            size={"middle"}
-            ghost
-            onClick={() => {
-              router.push("/login");
-            }}
-          >
-            Log in
-          </Button>
+          )}
         </div>
       </div>
     </div>
