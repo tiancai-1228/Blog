@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AccountSlice {
   loginState?: "success" | "false";
-  userData: { name: string; id: string; email: string } | {};
+  userData: { name: string; id: string; email: string };
 }
 
 export const accountSlice = createSlice({
