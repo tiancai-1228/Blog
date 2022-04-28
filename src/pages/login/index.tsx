@@ -17,6 +17,7 @@ const login = () => {
   };
   useEffect(() => {
     if (loginState === "success") {
+      console.log('in')
       openNotificationWithIcon("success");
       dispatch(setloginState({ loginState: undefined }));
       router.push("/home");
