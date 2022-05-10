@@ -16,6 +16,7 @@ const login = () => {
     });
   };
   useEffect(() => {
+    console.log("in");
     if (loginState === "success") {
       openNotificationWithIcon("success");
       dispatch(setloginState({ loginState: undefined }));
