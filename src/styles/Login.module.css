@@ -2,8 +2,12 @@
   height: 100vh;
   background: radial-gradient(ellipse 90% 100% at left top, #022e83, black);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.h1 {
+  color: white;
 }
 .inpurt {
   color: white;

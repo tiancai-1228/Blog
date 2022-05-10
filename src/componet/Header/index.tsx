@@ -41,8 +41,8 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/">
-            <a className={styles.h3}>Contact Us</a>
+          <Link href="/signUp">
+            <a className={styles.h3}>Sign Up</a>
           </Link>
         </li>
       </ul>

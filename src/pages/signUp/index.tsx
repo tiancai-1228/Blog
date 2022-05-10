@@ -3,39 +3,35 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Login.module.css";
 import { Button, Form, Input, notification } from "antd";
 import { useAppDispatch, useAppSelector } from "../../hook/useAppRedux";
-import { setLogin, setloginState } from "../../redux/slices/accountSlice";
+import { setSignUp } from "../../redux/slices/accountSlice";
 import router from "next/router";
 import Link from "next/link";
 
 const login = () => {
   const dispatch = useAppDispatch();
-  const { loginState } = useAppSelector((state) => state.account.value);
+  const { signUpState } = useAppSelector((state) => state.account.value);
 
-  const openNotificationWithIcon = (type: "success" | "error") => {
-    notification[type]({
-      message: type === "success" ? "login success" : "login false",
-    });
-  };
   useEffect(() => {
-    if (loginState === "success") {
-      openNotificationWithIcon("success");
-      dispatch(setloginState({ loginState: undefined }));
-      router.push("/home");
-    } else if (loginState === "false") {
-      openNotificationWithIcon("error");
-      dispatch(setloginState({ loginState: undefined }));
+    console.log(signUpState);
+    if (signUpState === "success") {
+      router.push("/login");
     }
-  }, [loginState]);
+  }, [signUpState]);
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.h1}>Log In</h1>
+        <h1 className={styles.h1}>Sign Up</h1>
         <Form
           name="basic"
           labelCol={{ span: 8 }}
           initialValues={{}}
           onFinish={(val) => {
-            dispatch(setLogin({ val }));
+            if (val.checkPassword === val.password) {
+              dispatch(setSignUp({ val }));
+              console.log(val);
+            } else {
+              alert("確認密碼錯誤");
+            }
           }}
           onFinishFailed={(err) => {
             console.log("err", err);
@@ -63,16 +59,22 @@ const login = () => {
           >
             <Input.Password />
           </Form.Item>
-
+          <Form.Item
+            label={<label className={styles.inpurt}>確認password</label>}
+            name="checkPassword"
+            rules={[{ required: true, message: "Please input your password!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
-              Submit
+              Sign Up
             </Button>
           </Form.Item>
         </Form>
         <div>
-          <Link href="/signUp">
-            <a className={styles.h3}>go to Sign Up</a>
+          <Link href="/login">
+            <a className={styles.h3}>go to login</a>
           </Link>
         </div>
       </div>

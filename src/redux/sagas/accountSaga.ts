@@ -5,8 +5,14 @@ import {
   setloginState,
   setUserData,
   setCheckLogin,
+  setSignUp,
+  setSignUpState,
 } from "../slices/accountSlice";
-import { accountLogin, checkLogin } from "../../axios/api/account";
+import {
+  accountLogin,
+  checkLogin,
+  accountSiignUp,
+} from "../../axios/api/account";
 import { addAxiosToken } from "../../axios/index";
 // handler
 function* handelTest(action: any) {
@@ -51,6 +57,40 @@ function* handelLogin(action: any) {
   }
 }
 
+function* handelSignUp(action: any) {
+  const { username, email, password } = action.payload.val;
+
+  try {
+    const data: {
+      data: {
+        result: {
+          status: string;
+          registerMember: {
+            create_date: string;
+            email: string;
+            name: string;
+            password: string;
+          };
+        };
+      };
+    } = yield call(accountSiignUp, {
+      name: username,
+      email,
+      password,
+    });
+
+    if (data.data.result.status === "success") {
+      alert("註冊成功");
+      yield put(setSignUpState({ signUpState: "success" }));
+    } else {
+      alert("註冊失敗");
+      yield put(setSignUpState({ signUpState: "false" }));
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function* isLogin(action: any) {
   const { token } = action.payload;
   addAxiosToken(token);
@@ -86,4 +126,7 @@ export function* watchHandelLogin() {
 
 export function* watchHandelCheck() {
   yield takeLatest(setCheckLogin, isLogin);
+}
+export function* watchHandelSignUp() {
+  yield takeLatest(setSignUp, handelSignUp);
 }

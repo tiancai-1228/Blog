@@ -12,7 +12,14 @@ const accountLogin = ({ name, password, email }: any) =>
     email,
   });
 
+const accountSiignUp = ({ name, password, email }: any) =>
+  customAxios.post(`https://robby-user.herokuapp.com/register`, {
+    name,
+    password,
+    email,
+  });
+
 const checkLogin = ({ name, password, email }: any) =>
   customAxios.post(`https://robby-user.herokuapp.com/check`, {});
 
-export { accountLogin, checkLogin };
+export { accountLogin, checkLogin, accountSiignUp };
