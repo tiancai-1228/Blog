@@ -8,10 +8,22 @@ import logo from "../image/logo.jpg";
 import loading from "../image/loading.png";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import { useAppDispatch, useAppSelector } from "../hook/useAppRedux";
+import { setUserData } from "../redux/slices/accountSlice";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const isLogin = Cookies.get("login");
+  const dispatch = useAppDispatch();
+  const { userData } = useAppSelector((state) => state.account.value);
+
+  const [isLogin, setIsLogin] = useState<any>();
+  const handelLogOut = () => {
+    Cookies.remove("login");
+    dispatch(setUserData({ userData: undefined }));
+  };
+  useEffect(() => {
+    setIsLogin(Cookies.get("login"));
+  }, [userData]);
 
   return (
     <div className={styles.container}>
@@ -49,6 +61,19 @@ const Home: NextPage = () => {
               }}
             >
               Log in
+            </Button>
+          )}
+          {isLogin && (
+            <Button
+              type="primary"
+              shape="round"
+              size={"middle"}
+              ghost
+              onClick={() => {
+                handelLogOut();
+              }}
+            >
+              Log out
             </Button>
           )}
         </div>

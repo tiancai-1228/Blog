@@ -10,7 +10,7 @@
 .header_home {
   position: fixed;
   display: flex;
-  justify-content: right;
+  justify-content: space-around;
   width: 100%;
   z-index: 10;
   padding-top: 15px;
@@ -26,11 +26,22 @@
 .item li {
   list-style: none;
 }
-
+.backBtn {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
 .h3 {
   color: white;
 }
 .item :hover {
+  color: rgb(255, 77, 0);
+  transition: color, font-size 0.5s;
+  font-size: 24px;
+}
+
+.backBtn :hover {
   color: rgb(255, 77, 0);
   transition: color, font-size 0.5s;
   font-size: 24px;
