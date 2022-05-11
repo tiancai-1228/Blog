@@ -49,6 +49,13 @@ const chat = () => {
   return (
     <>
       <br />
+      <div className={styles.note}>
+        <h1>note</h1>
+        <p>
+          簡單的websocket與server串接練習，可以開啟2個頁面來登入不同user聊天
+          或登入使用test input
+        </p>
+      </div>
       <div className={styles.contents}>{messages}</div>
       <div className={styles.messageInpit}>
         <Search

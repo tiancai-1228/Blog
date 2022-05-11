@@ -35,3 +35,11 @@
   margin-top: 10px;
   margin-right: auto;
 }
+.note {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.382);
+}
