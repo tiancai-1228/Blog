@@ -1,10 +1,11 @@
 .messageInpit {
   position: fixed;
+  left: 20%;
   bottom: 0;
-  width: 100%;
+  width: 60%;
 }
 .contents {
-  width: 80%;
+  width: 60%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 60px;

@@ -45,7 +45,7 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/blog">
+          <Link href="/chat">
             <a className={styles.h3}>chat</a>
           </Link>
         </li>
