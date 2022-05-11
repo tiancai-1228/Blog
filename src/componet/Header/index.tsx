@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import styles from "../../styles/Header.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAppDispatch, useAppSelector } from "../../hook/useAppRedux";
+import { setUserData } from "../../redux/slices/accountSlice";
 import Cookies from "js-cookie";
 function Header() {
   let location = useRouter();
-
+  const dispatch = useAppDispatch();
   const [headerType, setHeaderType] = useState("header");
   const [isLogin, setIsLogin] = useState<any>();
-  // const isLogin = Cookies.get("login");
 
   const handelLogOut = () => {
     Cookies.remove("login");
     setIsLogin(Cookies.get("login"));
+    dispatch(setUserData({ userData: undefined }));
   };
 
   useEffect(() => {

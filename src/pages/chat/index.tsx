@@ -17,11 +17,12 @@ const chat = () => {
   const { sendMessage } = useWebSocket(socketUrl, {
     onOpen: () => console.log("opened"),
     onMessage: (msg) => {
-      console.log(msg.data.split(",")[0], "====", userData.id);
       setComment([
         ...comment,
         {
-          isUser: msg.data.split(",")[0] === userData.id.toString(),
+          isUser: userData
+            ? msg.data.split(",")[0] === userData.id.toString()
+            : false,
           msg: msg.data.split(",")[1],
         },
       ]);
@@ -55,12 +56,15 @@ const chat = () => {
           size="large"
           value={messageData}
           onChange={(val) => {
-            setMessage(`${userData.id},${val.target.value}`);
+            if (userData) {
+              setMessage(`${userData.id},${val.target.value}`);
+            }
+
             setMessageData(val.target.value);
           }}
           onSearch={() => {
             setMessageData("");
-            isLogin ? sendMessage(message) : alert("請先登入");
+            userData ? sendMessage(message) : alert("請先登入");
           }}
         />
       </div>
