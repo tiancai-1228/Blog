@@ -1,8 +1,14 @@
 .messageInpit {
   position: fixed;
-  left: 20%;
+  right: 10%;
   bottom: 0;
-  width: 60%;
+  width: 30%;
+}
+.testInpit {
+  position: fixed;
+  left: 10%;
+  bottom: 0;
+  width: 30%;
 }
 .contents {
   width: 60%;

@@ -11,6 +11,7 @@ const chat = () => {
   const { userData } = useAppSelector((state) => state.account.value);
   const [message, setMessage] = useState("");
   const [messageData, setMessageData] = useState("");
+  const [testData, setTestData] = useState("");
   const [comment, setComment] = useState<any>([]);
   const [isLogin, setIsLogin] = useState<any>();
   const socketUrl = "wss://robby-websocket.herokuapp.com";
@@ -51,7 +52,7 @@ const chat = () => {
       <div className={styles.contents}>{messages}</div>
       <div className={styles.messageInpit}>
         <Search
-          placeholder="input message text"
+          placeholder="input message "
           enterButton="send"
           size="large"
           value={messageData}
@@ -63,8 +64,28 @@ const chat = () => {
             setMessageData(val.target.value);
           }}
           onSearch={() => {
-            setMessageData("");
-            userData ? sendMessage(message) : alert("請先登入");
+            if (messageData) {
+              userData ? sendMessage(message) : alert("請先登入");
+              setMessageData("");
+            }
+          }}
+        />
+      </div>
+      <div className={styles.testInpit}>
+        <Search
+          placeholder="test input "
+          enterButton="send"
+          size="large"
+          value={testData}
+          onChange={(val) => {
+            setMessage(`false,${val.target.value}`);
+            setTestData(val.target.value);
+          }}
+          onSearch={() => {
+            if (testData) {
+              sendMessage(message);
+              setTestData("");
+            }
           }}
         />
       </div>
