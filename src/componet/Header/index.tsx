@@ -19,6 +19,7 @@ function Header() {
   };
 
   useEffect(() => {
+    console.log("in");
 
     if (
       location.pathname === "/" ||
