@@ -1,3 +1,10 @@
+.container {
+  background-image: url(../image/banner.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 0px 0 20px 0;
+}
+
 .messageInpit {
   position: fixed;
   right: 10%;
@@ -42,4 +49,5 @@
   margin-top: 60px;
   padding: 10px;
   background-color: rgba(128, 128, 128, 0.382);
+  color: #fff;
 }

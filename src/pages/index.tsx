@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.title}>
         <h1>welcome</h1>
-        <p>Front End Blog : )</p>
+        <p>第一次登入或註冊可能會需要等待一下heroku server睡醒 :)</p>
         <div className={styles.loginBtn}>
           <Button
             type="primary"

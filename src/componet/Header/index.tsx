@@ -55,11 +55,6 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/">
-            <a className={styles.h3}>About</a>
-          </Link>
-        </li>
-        <li>
           <Link href="/chat">
             <a className={styles.h3}>chat</a>
           </Link>
